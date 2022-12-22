@@ -17,15 +17,15 @@ function onLiftCall(e) {
   let liftCurrentPosition = parseInt(refs.lift.style.top);
   let whereLiftBecome = parseInt(refs.lift.style.top);
   if (e.target.id === 'f-1-btn') {
-    whereLiftBecome = 700;
+    whereLiftBecome = 844;
   } else if (e.target.id === 'f-2-btn') {
-    whereLiftBecome = 529;
+    whereLiftBecome = 644;
   } else if (e.target.id === 'f-3-btn') {
-    whereLiftBecome = 359;
+    whereLiftBecome = 444;
   } else if (e.target.id === 'f-4-btn') {
-    whereLiftBecome = 187;
+    whereLiftBecome = 244;
   } else if (e.target.id === 'f-5-btn') {
-    whereLiftBecome = 20;
+    whereLiftBecome = 44;
   }
   setTimeout(() => {
     onActivateLift(e, liftCurrentPosition, whereLiftBecome);
@@ -56,6 +56,7 @@ function liftToGo(e, liftCurrentPosition, whereLiftBecome, op) {
       clearInterval(intervalId);
       onLiftWaiting();
       inActiveCallBtns(e);
+      // refs.lift.style.zIndex = 1;
       e.target.previousElementSibling.classList.add('outdoor-open');
       setTimeout(() => {
         LIFT_DELAY = 0;
@@ -69,23 +70,23 @@ function tabCounter(liftCurrentPosition, whereLiftBecome, op) {
   const counterId = setInterval(() => {
     let num = liftCurrentPosition - `${op}`;
     liftCurrentPosition = num;
-    if (700 > liftCurrentPosition && 615 < liftCurrentPosition) {
+    if (844 > liftCurrentPosition && 744 < liftCurrentPosition) {
       refs.tabNum.forEach(floorNum => {
         floorNum.textContent = 1;
       });
-    } else if (615 > liftCurrentPosition && 445 < liftCurrentPosition) {
+    } else if (744 > liftCurrentPosition && 544 < liftCurrentPosition) {
       refs.tabNum.forEach(floorNum => {
         floorNum.textContent = 2;
       });
-    } else if (445 > liftCurrentPosition && 275 < liftCurrentPosition) {
+    } else if (544 > liftCurrentPosition && 344 < liftCurrentPosition) {
       refs.tabNum.forEach(floorNum => {
         floorNum.textContent = 3;
       });
-    } else if (275 > liftCurrentPosition && 105 < liftCurrentPosition) {
+    } else if (344 > liftCurrentPosition && 144 < liftCurrentPosition) {
       refs.tabNum.forEach(floorNum => {
         floorNum.textContent = 4;
       });
-    } else if (105 > liftCurrentPosition && 20 < liftCurrentPosition) {
+    } else if (144 > liftCurrentPosition && 44 < liftCurrentPosition) {
       refs.tabNum.forEach(floorNum => {
         floorNum.textContent = 5;
       });
