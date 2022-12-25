@@ -83,7 +83,7 @@ p {
   height: 151px;
   top: 18px;
   left: 10px;
-  background-color: rgba(255, 255, 255, 0.461);
+  background-color: #00000079;
   transform: translateX(0);
   transition: 2000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -92,12 +92,15 @@ p {
   transform: translateX(-100%);
 }
 
-.button-lift {
+.lift-button {
   border-radius: 50%;
-  border-color: black;
-  padding: 2px 6px;
+  padding: 3px 6px;
   border-width: 1px;
-  border-style: ridge;
+  font-size: 10px;
+  cursor: pointer;
+}
+.lift-button:active {
+  background-color: #ff3535;
 }
 
 .button__call {
@@ -105,10 +108,10 @@ p {
   top: 100px;
   left: 120px;
   border-radius: 50%;
-  border-color: black;
-  padding: 10px 10px;
-  border-width: 1px;
-  border-style: ridge;
+  /* border-color: black; */
+  padding: 7px 7px;
+  border-width: 2px;
+  cursor: pointer;
 }
 /* =========== */
 
