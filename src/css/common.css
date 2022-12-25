@@ -98,9 +98,7 @@ p {
   border-width: 1px;
   font-size: 10px;
   cursor: pointer;
-}
-.lift-button:active {
-  background-color: #ff3535;
+  background-color: #efefef;
 }
 
 .button__call {
