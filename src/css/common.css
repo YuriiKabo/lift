@@ -106,7 +106,7 @@ p {
   top: 100px;
   left: 120px;
   border-radius: 50%;
-  /* border-color: black; */
+  background-color: #efefef;
   padding: 7px 7px;
   border-width: 2px;
   cursor: pointer;
