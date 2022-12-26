@@ -99,6 +99,7 @@ p {
   font-size: 10px;
   cursor: pointer;
   background-color: #efefef;
+  color: #000000;
 }
 
 .button__call {
