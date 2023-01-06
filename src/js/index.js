@@ -21,16 +21,27 @@ function onLiftActiveate(e) {
   if (e.target.nodeName === 'BUTTON') {
     const liftCurrentPosition = parseInt(refs.lift.style.top);
     let whereLiftBecome = parseInt(refs.lift.style.top);
-    if (e.target.id === 'f1' || e.target.id === 'f-1-btn') {
-      whereLiftBecome = 844;
-    } else if (e.target.id === 'f2' || e.target.id === 'f-2-btn') {
-      whereLiftBecome = 644;
-    } else if (e.target.id === 'f3' || e.target.id === 'f-3-btn') {
-      whereLiftBecome = 444;
-    } else if (e.target.id === 'f4' || e.target.id === 'f-4-btn') {
-      whereLiftBecome = 244;
-    } else if (e.target.id === 'f5' || e.target.id === 'f-5-btn') {
-      whereLiftBecome = 44;
+    switch (e.target.id) {
+      case 'f1':
+      case 'f-1-btn':
+        whereLiftBecome = 844;
+        break;
+      case 'f2':
+      case 'f-2-btn':
+        whereLiftBecome = 644;
+        break;
+      case 'f3':
+      case 'f-3-btn':
+        whereLiftBecome = 444;
+        break;
+      case 'f4':
+      case 'f-4-btn':
+        whereLiftBecome = 244;
+        break;
+      case 'f5':
+      case 'f-5-btn':
+        whereLiftBecome = 44;
+        break;
     }
     if (e.target.className === 'lift-button') {
       closeDoorsMomentaly();
