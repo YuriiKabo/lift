@@ -3,6 +3,15 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Digital Numbers Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Digital Numbers Regular'),
+    url('../fonts/digital-numbers-cufonfonts-webfont/DigitalNumbers-Regular.woff')
+      format('woff');
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -141,6 +150,7 @@ p {
 
 .tab__quad-num {
   display: block;
+  font-family: 'Digital Numbers Regular';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
