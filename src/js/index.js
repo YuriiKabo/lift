@@ -8,6 +8,8 @@ const refs = {
   doors: document.querySelectorAll('.outdoor'),
 };
 
+const { body, floors, lift, btnCall, liftBtn, tabNum, doors } = refs;
+
 const ACTIVE_COLOR = '#ff3535';
 const INACTIVE_COLOR = '#efefef';
 const DOORS_TIMEOUT = 4000;
@@ -15,12 +17,12 @@ const LIFT_SPEED = 7;
 let LIFT_DELAY = 0;
 let doorNumb = 1;
 
-refs.body.addEventListener('click', onLiftActiveate);
+body.addEventListener('click', onLiftActiveate);
 
 function onLiftActiveate(e) {
   if (e.target.nodeName === 'BUTTON') {
-    const liftCurrentPosition = parseInt(refs.lift.style.top);
-    let whereLiftBecome = parseInt(refs.lift.style.top);
+    const liftCurrentPosition = parseInt(lift.style.top);
+    let whereLiftBecome = parseInt(lift.style.top);
     switch (e.target.id) {
       case 'f1':
       case 'f-1-btn':
@@ -101,7 +103,7 @@ function liftToGo(e, liftCurrentPosition, whereLiftBecome, op) {
   const intervalId = setInterval(() => {
     let val = liftCurrentPosition - `${op}`;
     liftCurrentPosition = val;
-    refs.lift.style.top = `${liftCurrentPosition}px`;
+    lift.style.top = `${liftCurrentPosition}px`;
     if (liftCurrentPosition === whereLiftBecome) {
       onOpenDoor(doorNumb);
       clearInterval(intervalId);
@@ -119,9 +121,9 @@ function liftToGo(e, liftCurrentPosition, whereLiftBecome, op) {
 
 function onToggleDoor(doorNumb) {
   closeDoorsTimeout();
-  for (let i = 0; i < refs.tabNum.length; i += 1) {
+  for (let i = 0; i < tabNum.length; i += 1) {
     if (i === 0) {
-      refs.doors.forEach(door => {
+      doors.forEach(door => {
         const numOfFloor = doorNumb;
         if (door.id === `d${numOfFloor}`) {
           door.classList.toggle('outdoor-open');
@@ -134,9 +136,9 @@ function onToggleDoor(doorNumb) {
 
 function onOpenDoor(doorNumb) {
   closeDoorsTimeout();
-  for (let i = 0; i < refs.tabNum.length; i += 1) {
+  for (let i = 0; i < tabNum.length; i += 1) {
     if (i === 0) {
-      refs.doors.forEach(door => {
+      doors.forEach(door => {
         const numOfFloor = doorNumb;
         if (door.id === `d${numOfFloor}`) {
           door.classList.add('outdoor-open');
@@ -154,7 +156,7 @@ function closeDoorsTimeout() {
 }
 
 function closeDoorsMomentaly() {
-  refs.doors.forEach(door => {
+  doors.forEach(door => {
     door.classList.remove('outdoor-open');
   });
 }
@@ -162,33 +164,33 @@ function closeDoorsMomentaly() {
 function activateLiftBtn(e) {
   e.target.style.backgroundColor = '#3f86ff';
   e.target.style.color = '#ffffff';
-  refs.lift.removeEventListener('click', onLiftActiveate);
+  lift.removeEventListener('click', onLiftActiveate);
   activeCallBtns();
 }
 
 function inActiveLiftBtn(e) {
   e.target.style.backgroundColor = INACTIVE_COLOR;
   e.target.style.color = '#000000';
-  refs.lift.addEventListener('click', onLiftActiveate);
+  lift.addEventListener('click', onLiftActiveate);
   inActiveCallBtns();
 }
 
 function activeCallBtns() {
-  refs.btnCall.forEach(btn => {
+  btnCall.forEach(btn => {
     btn.disabled = true;
     btn.style.backgroundColor = ACTIVE_COLOR;
   });
 }
 
 function inActiveCallBtns() {
-  refs.btnCall.forEach(btn => {
+  btnCall.forEach(btn => {
     btn.disabled = false;
     btn.style.backgroundColor = INACTIVE_COLOR;
   });
 }
 
 function setNumberOfFloor(doorNumb) {
-  refs.tabNum.forEach(floorNum => {
+  tabNum.forEach(floorNum => {
     floorNum.textContent = doorNumb;
   });
 }
