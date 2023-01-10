@@ -204,5 +204,5 @@ function onLiftWaiting() {
     if (LIFT_DELAY === 0) {
       clearInterval(liftInterval);
     }
-  }, 100);
+  }, 50);
 }
